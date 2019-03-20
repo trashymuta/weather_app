@@ -21,7 +21,7 @@ weatherFoem.addEventListener('submit', (e) => {
             } else {
                 messageOne.textContent = data.location
                 messageTwo.textContent = data.summary
-                messageThree.textContent = data.temperature + ' stopni ^C'
+                messageThree.textContent = data.temperature
             }
         })
     })

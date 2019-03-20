@@ -23,7 +23,7 @@ const weather = (latitude, longitude, callback) => {
             callback(undefined, {
                 // location: data.location,
                 summary: body.currently.summary,
-                temperature: body.currently.temperature
+                temperature:`it's currently ${body.currently.temperature} degrees outside.`
             })
         }
     })
