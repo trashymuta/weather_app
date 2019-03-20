@@ -24,7 +24,7 @@ weatherFoem.addEventListener('submit', (e) => {
                 messageOne.textContent = data.location
                 messageTwo.textContent = data.summary
                 messageThree.textContent = data.temperature
-                messageFour.textContent = data.percip
+                messageFour.textContent = data.precip
             }
         })
     })

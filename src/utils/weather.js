@@ -20,11 +20,20 @@ const weather = (latitude, longitude, callback) => {
         } else if (body.error) {
             callback('unable to find location.', undefined)
         } else {
+            let precip
+            let precipPlus = `with ${body.currently.precipIntensity} intensity`
+            if(body.currently.precipType===undefined){
+                precip = 'precipitation'
+                precipPlus = ''
+            }else{
+                precip = body.currently.precipType
+                precipPlus = `with ${body.currently.precipIntensity} intensity`
+            }
             callback(undefined, {
                 // location: data.location,
                 summary:`${body.currently.icon}  ${body.currently.summary}`,
                 temperature:`it's currently ${body.currently.temperature} degrees outside.`,
-                percip: `curren chance for ${body.currently.percipType} is ${body.currently.percipProbability} with ${body.currently.percipIntensity} intensity`
+                precip: `current chance for ${precip} is ${body.currently.precipProbability} ${precipPlus}`
             })
         }
     })

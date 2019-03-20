@@ -52,14 +52,15 @@ app.get('/weather', (req, res) => {
         if (error) {
             return res.send({ error })
         }
-        weather(latitude, longitude, (error, { summary, temperature }) => {
+        weather(latitude, longitude, (error, {summary, temperature, precip}) => {
             if (error) {
                 return res.send({ error })
             }
             res.send({
                 summary: summary,
                 temperature: temperature,
-                location
+                location,
+                precip: precip
             })
         })
     })
