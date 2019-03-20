@@ -22,8 +22,9 @@ const weather = (latitude, longitude, callback) => {
         } else {
             callback(undefined, {
                 // location: data.location,
-                summary: body.currently.summary,
-                temperature:`it's currently ${body.currently.temperature} degrees outside.`
+                summary:`${body.currently.icon}  ${body.currently.summary}`,
+                temperature:`it's currently ${body.currently.temperature} degrees outside.`,
+                percip: `curren chance for ${body.currently.percipType} is ${body.currently.percipProbability} with ${body.currently.percipIntensity} intensity`
             })
         }
     })

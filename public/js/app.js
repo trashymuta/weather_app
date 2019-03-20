@@ -7,13 +7,15 @@ const search = document.querySelector('input')
 const messageOne = document.querySelector('#message-1')
 const messageTwo = document.querySelector('#message-2')
 const messageThree = document.querySelector('#message-3')
+const messageFour = document.querySelector('#message-4')
 
 weatherFoem.addEventListener('submit', (e) => {
     e.preventDefault()
     const location = search.value
-    messageOne.textContent = ''
+    messageOne.textContent = 'Loading...'
     messageTwo.textContent = ''
     messageThree.textContent = ''
+    messageFour.textContent = ''
     fetch(`/weather?address=${location}`).then((response) => {
         response.json().then((data) => {
             if (data.error) {
@@ -22,6 +24,7 @@ weatherFoem.addEventListener('submit', (e) => {
                 messageOne.textContent = data.location
                 messageTwo.textContent = data.summary
                 messageThree.textContent = data.temperature
+                messageFour.textContent = data.percip
             }
         })
     })
